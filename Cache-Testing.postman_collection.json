@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "a120f549-2607-4ea5-bbd8-19ae90b1240c",
+		"name": "Cache-Testing",
+		"description": "This workspace will be used to store calls to cache",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SaveOrders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customer\": {\r\n    \"id\": 2\r\n  },\r\n  \"id\": null,\r\n  \"notes\": \"My notes..\",\r\n  \"orderDate\": \"2020-08-01\",\r\n  \"orderDetails\": [\r\n    {\r\n      \"allocationDate\": \"2020-08-01\",\r\n      \"discount\": 1,\r\n      \"id\": null,\r\n      \"orders\": null,\r\n      \"product\": {\r\n        \"id\": 1\r\n      },\r\n      \"purchaseOrder\": null,\r\n      \"quantity\": 1,\r\n      \"status\": \"On_Order\",\r\n      \"unitPrice\": 1\r\n    }\r\n  ],\r\n  \"paidDate\": \"2020-08-01\",\r\n  \"paymentType\": {\r\n    \"paymentTypeId\": 1\r\n  },\r\n  \"shippedDate\": \"2020-08-01\",\r\n  \"shippingFeeAmount\": 1,\r\n  \"status\": \"New\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/sprocket-orders-api/orders-api/save-order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"sprocket-orders-api",
+						"orders-api",
+						"save-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindOrdersById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/sprocket-orders-api/orders-api/find-orders-by-id?ordersId=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"sprocket-orders-api",
+						"orders-api",
+						"find-orders-by-id"
+					],
+					"query": [
+						{
+							"key": "ordersId",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SavePaymentTypeCreditCard",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"description\": \"Paying by Credit Card\",\r\n        \"name\": \"Credit Card\"\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8081/sprocket-orders-api/payment-type-api/save-payment-type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"sprocket-orders-api",
+						"payment-type-api",
+						"save-payment-type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SavePaymentTypePayPal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"description\": \"Paying by PayPal\",\r\n        \"name\": \"PayPal\"\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8081/sprocket-orders-api/payment-type-api/save-payment-type",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"sprocket-orders-api",
+						"payment-type-api",
+						"save-payment-type"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

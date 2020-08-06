@@ -1,0 +1,58 @@
+management:
+  endpoint:
+    flyway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: 8081
+  servlet:
+    context-path: /sprocket-orders-api
+spring:
+  data:
+    jpa:
+      hibernate:
+        cache:
+          region:
+            factory_class: "org.hibernate.cache.ehcache.internal.EhCacheRegionFactory"
+            my_dumb_factory_class: "org.hibernate.cache.ehcache.EhCacheRegionFactory"
+          use_second_level_cache: true
+        ddl-auto: none
+  flyway:
+    baselineOnMigrate: true
+    baselineDescription: "FLYWAY-BASELINE"
+    enabled: true
+    ignoreMissingMigrations: true
+    outOfOrder: true
+    validateOnMigrate: true
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm"
+    serialization:
+      write-dates-as-timestamps: false
+
+---
+
+spring:
+  profiles: local
+  _comment: "This is the development profile"
+  datasource:
+    platform: "hsqldb"
+  flyway:
+    locations: "classpath:db/migration/hsql-db,classpath:db/migration/local"
+    mixed: true
+  hsql:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        database: "HSQL"
+        dialect: "org.hibernate.dialect.HSQLDialect"
+    open-in-view: true
+
+---
+

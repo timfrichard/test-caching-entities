@@ -1,0 +1,55 @@
+{
+  "customer": {
+    "address": "4213 Mocking Bird Ln.",
+    "businessPhone": "314 231-2345",
+    "city": "St Louis",
+    "company": "My Customer Co",
+    "emailAddress": "emailme@mail.com",
+    "firstName": "Herman",
+    "homePhone": "314 567-8901",
+    "id": null,
+    "jobTitle": "Painter",
+    "lastName": "Munster",
+    "state": "MO",
+    "zipCode": 63100,
+    "orders": null
+  },
+  "id": null,
+  "notes": "My notes..",
+  "orderDate": "2020-08-01",
+  "orderDetails": [
+    {
+      "allocationDate": "2020-08-01",
+      "discount": 1,
+      "id": null,
+      "orders": null,
+      "product": {
+        "category": "Canned Fruit & Vegetables",
+        "description": "",
+        "discontinued": false,
+        "id": null,
+        "listPrice": 1.2,
+        "minimumReorderLevel": null,
+        "productCode": "NWTCFV-93",
+        "productName": "Northwind Traders Corn",
+        "quantityPerUnit": "14.5 OZ",
+        "reorderLevel": 10,
+        "standardPrice": 1,
+        "targetLevel": 40
+      },
+      "purchaseOrder": null,
+      "quantity": 1,
+      "status": "On_Order",
+      "unitPrice": 1
+    }
+  ],
+  "paidDate": "2020-08-01",
+  "paymentType": {
+    "description": "Paying by check",
+    "name": "Check",
+    "paymentTypeId": 1
+  },
+  "shippedDate": "2020-08-01",
+  "shippingFeeAmount": 1,
+  "status": "New"
+}

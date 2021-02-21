@@ -7,7 +7,7 @@ management:
       exposure:
         include: "*"
 server:
-  port: 8081
+  port: 8085
   servlet:
     context-path: /sprocket-orders-api
 spring:
@@ -52,6 +52,10 @@ spring:
       hibernate:
         database: "HSQL"
         dialect: "org.hibernate.dialect.HSQLDialect"
+      javax:
+        persistenct:
+          sharedCache:
+            mode: "ENABLE_SELECTIVE"
     open-in-view: true
 
 ---

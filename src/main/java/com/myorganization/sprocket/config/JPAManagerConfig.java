@@ -60,6 +60,8 @@ public class JPAManagerConfig {
         jpaProperties.put("hibernate.cache.region.factory_class", "org.hibernate.cache.jcache.JCacheRegionFactory");
         jpaProperties.put("hibernate.javax.cache.provider", "org.ehcache.jsr107.EhcacheCachingProvider");
 
+        //See the following site for how to do this with Spring Boot and no Entity Manager
+        //https://www.devtalkers.com/2020/04/hibernate-second-level-cache-spring.html
         //https://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/chapters/caching/Caching.html
         //https://www.boraji.com/hibernate-5-jcache-ehcache-3-configuration-example
         //hibernate.cache.use_second_level_cache = true

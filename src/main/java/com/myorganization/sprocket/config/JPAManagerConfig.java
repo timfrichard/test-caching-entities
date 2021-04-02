@@ -11,6 +11,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import javax.validation.ValidatorFactory;
 import java.util.Properties;
 
 @Configuration
@@ -19,6 +20,9 @@ public class JPAManagerConfig {
 
     @Autowired
     private DataSource dataSource;
+
+    @Autowired
+    private ValidatorFactory validator;
 
     @Value("${spring.jpa.properties.hibernate.database:POSTGRESQL}")
     private String hibernateDatabase;
@@ -60,6 +64,7 @@ public class JPAManagerConfig {
         jpaProperties.put("hibernate.cache.region.factory_class", "org.hibernate.cache.jcache.JCacheRegionFactory");
         jpaProperties.put("hibernate.javax.cache.provider", "org.ehcache.jsr107.EhcacheCachingProvider");
         jpaProperties.put("hibernate.javax.cache.missing_cache_strategy", "create");
+        jpaProperties.put("javax.persistence.validation.factory", validator);
 
         //See the following site for how to do this with Spring Boot and no Entity Manager
         //https://www.devtalkers.com/2020/04/hibernate-second-level-cache-spring.html

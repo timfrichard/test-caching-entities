@@ -43,7 +43,6 @@ public class OrdersService {
         order.setCustomer(customerService.findById(order.getCustomer().getId()));
         order.setPaymentType(paymentTypeService.findById(order.getPaymentType().getPaymentTypeId()));
         Orders persistedOrder = repository.saveAndFlush(order);
-        order.getOrderDetails().forEach(orderDetail -> {orderDetailService.save(orderDetail);});
         log.info("Customer: " + order.getCustomer());
         log.info("PaymentType: " + order.getPaymentType());
 

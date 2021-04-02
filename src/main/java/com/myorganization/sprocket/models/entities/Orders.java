@@ -1,27 +1,14 @@
 package com.myorganization.sprocket.models.entities;
 
 import com.myorganization.sprocket.Utils.BaseConstants;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.myorganization.sprocket.constraints.EntityElementGeneralInput;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -53,9 +40,11 @@ public class Orders {
     private Long id;
 
     @Column(name = "notes", length = 255)
+    @EntityElementGeneralInput(allowNull = true, label = "Notes", maxLength = 255, type = "SafeString")
     private String notes;
 
     @Column(name = "order_date", columnDefinition = "DATE")
+    @FutureOrPresent
     private LocalDate orderDate;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "orders") //, cascade = { CascadeType.ALL }
@@ -66,6 +55,7 @@ public class Orders {
 
     @JoinColumn(name = "fk_payment_type", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
+    @NotNull
     private PaymentType paymentType;
 
     @Column(name = "shipped_date", columnDefinition = "DATE")
